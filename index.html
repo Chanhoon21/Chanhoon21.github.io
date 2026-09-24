@@ -4,187 +4,211 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chanhoon Park</title>
-<meta name="description" content="Chanhoon Park, PhD candidate in Counselor Education & Supervision at Ohio University. Research on adolescent cyberbullying, well-being, and counseling measurement.">
+<meta name="description" content="Chanhoon Park, PhD candidate in Counselor Education & Supervision at Ohio University. Research on children and adolescents, cyberbullying, well-being, and counseling measurement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
-  /* Design read: academic portfolio for search committees and clinical employers,
-     calm editorial language, native CSS. Dials: VARIANCE 6 / MOTION 4 / DENSITY 3. */
+  /* Design read: academic portfolio for search committees, institutional language.
+     Serif display justified by the publication/academic genre. Figma source: hVNqi1puvPRatnwPLZqRV8 */
   :root {
-    --bg: #f6f7f6;
-    --surface: #eceeec;
-    --text: #17191a;
-    --muted: #55595b;
-    --line: #d5d8d6;
-    --accent: #1f5c4d;
-    --accent-soft: #dbe7e2;
-    --radius: 14px;
+    --bg: #f6f7f9;
+    --paper: #fbfcfd;
+    --soft: #e7ecf3;
+    --text: #141a24;
+    --muted: #5a6474;
+    --line: #dce1e8;
+    --navy: #14284b;
+    --on-navy: #fbfcfd;
+    --on-navy-muted: #b7c3d6;
+    --accent: #14284b;
+    --radius: 4px;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "IBM Plex Sans", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #111413;
-      --surface: #1a1e1c;
-      --text: #ecefed;
-      --muted: #a3aaa6;
-      --line: #2b312e;
-      --accent: #7cc4ad;
-      --accent-soft: #1d2d28;
+      --bg: #0f1522; --paper: #131a29; --soft: #182136; --text: #e9edf3; --muted: #9aa5b6;
+      --line: #263049; --navy: #1b2f55; --on-navy: #eef2f8; --on-navy-muted: #a9b6cc; --accent: #9db6e0;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #111413; --surface: #1a1e1c; --text: #ecefed; --muted: #a3aaa6;
-    --line: #2b312e; --accent: #7cc4ad; --accent-soft: #1d2d28;
+    --bg: #0f1522; --paper: #131a29; --soft: #182136; --text: #e9edf3; --muted: #9aa5b6;
+    --line: #263049; --navy: #1b2f55; --on-navy: #eef2f8; --on-navy-muted: #a9b6cc; --accent: #9db6e0;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: "Geist", system-ui, sans-serif;
-    font-size: 17px; line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   a { color: inherit; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-  .mono { font-family: "Geist Mono", ui-monospace, monospace; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .serif { font-family: var(--serif); }
+  .mono { font-family: var(--mono); }
+  [id] { scroll-margin-top: 80px; }
 
   /* Nav */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-  nav .name { font-weight: 600; text-decoration: none; letter-spacing: -0.01em; }
-  nav ul { display: flex; gap: 28px; list-style: none; font-size: 15px; }
-  nav ul a { text-decoration: none; color: var(--muted); transition: color .2s; }
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  nav .name { font-family: var(--serif); font-weight: 600; font-size: 22px; color: var(--accent); text-decoration: none; }
+  nav ul { display: flex; gap: 36px; list-style: none; }
+  nav ul a { font-size: 15px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
   nav ul a:hover { color: var(--text); }
-  [id] { scroll-margin-top: 80px; }
-  @media (max-width: 767px) {
-    nav .wrap { height: auto; flex-direction: column; align-items: stretch; gap: 8px; padding-top: 12px; padding-bottom: 10px; }
-    nav ul { gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -24px; padding: 0 24px; }
-    nav ul::-webkit-scrollbar { display: none; }
-    nav ul a { display: block; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; white-space: nowrap; color: var(--text); }
-    nav ul a:active { background: var(--surface); }
-    [id] { scroll-margin-top: 104px; }
-  }
 
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 22px; border-radius: 999px; white-space: nowrap;
-    font-size: 15px; font-weight: 500; text-decoration: none;
-    transition: transform .2s cubic-bezier(.16,1,.3,1), background .2s;
-  }
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; transition: transform .2s cubic-bezier(.16,1,.3,1), background .2s, color .2s; }
   .btn:active { transform: translateY(1px) scale(.98); }
-  .btn-primary { background: var(--accent); color: var(--bg); }
+  .btn-primary { background: var(--navy); color: var(--on-navy); }
   .btn-primary:hover { transform: translateY(-2px); }
-  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
-  .btn-ghost:hover { background: var(--surface); }
+  .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
+  .btn-outline:hover { background: var(--soft); }
+  .btn-light { background: var(--on-navy); color: #14284b; }
 
   /* Hero */
-  .hero { min-height: calc(100dvh - 64px); display: grid; align-items: center; padding: 56px 0; }
-  .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: center; }
-  .hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.4rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; }
-  .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-  .hero p.lead { margin-top: 24px; font-size: 1.2rem; color: var(--muted); max-width: 34ch; }
+  .hero { padding: 88px 0 104px; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 440px; gap: 96px; align-items: center; }
+  .kicker { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  .hero h1 { margin-top: 28px; font-family: var(--serif); font-weight: 600; font-size: clamp(2.3rem, 4.4vw, 3.9rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 16ch; }
+  .hero .lead { margin-top: 28px; font-size: 19px; color: var(--muted); max-width: 44ch; }
   .hero .ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .portrait {
-    aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden;
-    background: var(--accent-soft); position: relative;
-  }
-  .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .portrait .fallback {
-    position: absolute; inset: 0; display: grid; place-items: center;
-    font-size: 5rem; font-weight: 600; letter-spacing: -0.04em; color: var(--accent);
-  }
-  @media (max-width: 767px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .portrait { max-width: 320px; }
-  }
+  .portrait { position: relative; padding: 0 40px 40px 0; }
+  .portrait::before { content: ""; position: absolute; inset: 40px 0 0 40px; background: var(--navy); border-radius: var(--radius); }
+  .portrait img { position: relative; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); background: var(--soft); }
 
+  /* Credentials band */
+  .band { background: var(--navy); color: var(--on-navy); padding: 48px 0; }
+  .band .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
+  .band h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.3; }
+  .band p { margin-top: 6px; font-size: 14px; color: var(--on-navy-muted); }
+
+  /* Sections */
   section { padding: 112px 0; }
-  h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); letter-spacing: -0.03em; line-height: 1.1; font-weight: 600; }
-  .sub { margin-top: 16px; color: var(--muted); max-width: 60ch; }
-  .eyebrow { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 3.4vw, 2.65rem); line-height: 1.15; letter-spacing: -0.015em; }
+  .sub { margin-top: 16px; font-size: 18px; color: var(--muted); max-width: 58ch; }
 
-  /* Credentials strip */
-  .creds { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 40px 0; }
-  .creds-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-  .creds h3 { font-size: 15px; font-weight: 600; }
-  .creds p { font-size: 14px; color: var(--muted); margin-top: 4px; }
-  @media (max-width: 767px) { .creds-grid { grid-template-columns: 1fr 1fr; } }
-
-  /* Research bento */
-  .bento { margin-top: 56px; display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: auto auto; gap: 16px; }
-  .tile { border-radius: var(--radius); padding: 36px; background: var(--surface); }
-  .tile.main { grid-row: span 2; background: var(--accent); color: var(--bg); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; }
-  .tile.main p { opacity: .85; }
-  .tile.alt { background: var(--accent-soft); }
-  .tile h3 { font-size: 1.45rem; letter-spacing: -0.02em; line-height: 1.2; font-weight: 600; }
-  .tile p { margin-top: 12px; font-size: 16px; }
-  .tile:not(.main) p { color: var(--muted); }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-  .tags span { font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--bg) 40%, transparent); }
-  @media (max-width: 767px) { .bento { grid-template-columns: 1fr; } .tile.main { grid-row: auto; min-height: 0; } }
+  /* Research */
+  .areas { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); }
+  .area { padding: 28px 40px 0; border-top: 1px solid var(--line); }
+  .area:first-child { padding-left: 0; border-top: 3px solid var(--accent); }
+  .area h3 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.25; }
+  .area p { margin-top: 14px; font-size: 16px; color: var(--muted); }
 
   /* Publications */
-  .pubs { margin-top: 48px; display: grid; gap: 0; }
-  .pub { display: grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); }
-  .pub .yr { color: var(--muted); font-size: 14px; padding-top: 3px; }
-  .pub h3 { font-size: 1.1rem; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em; }
-  .pub p { font-size: 14px; color: var(--muted); margin-top: 6px; }
-  .pub a { color: var(--accent); text-decoration: none; }
+  .pubs-sec { background: var(--paper); }
+  .pubs { margin-top: 40px; }
+  .pub { display: grid; grid-template-columns: 120px 1fr; gap: 40px; padding: 24px 0; border-top: 1px solid var(--line); }
+  .pub .yr { font-family: var(--mono); font-size: 14px; color: var(--accent); padding-top: 4px; }
+  .pub h3 { font-family: var(--serif); font-weight: 400; font-size: 20px; line-height: 1.35; }
+  .pub p { margin-top: 6px; font-size: 14px; color: var(--muted); }
+  .pub a { color: var(--accent); font-weight: 500; text-decoration: none; }
   .pub a:hover { text-decoration: underline; }
-  details { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
-  summary { cursor: pointer; font-weight: 500; color: var(--accent); list-style: none; }
+  details { border-top: 1px solid var(--line); padding: 22px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  .pubs + details { margin-top: 24px; }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: var(--accent); }
   summary::-webkit-details-marker { display: none; }
-  summary::after { content: " +"; }
-  details[open] summary::after { content: " -"; }
-  details ul { margin-top: 16px; list-style: none; display: grid; gap: 14px; }
-  details li { font-size: 15px; color: var(--muted); max-width: 80ch; }
+  summary::after { content: "+"; font-family: var(--mono); font-size: 20px; }
+  details[open] summary::after { content: "-"; }
+  details ul { margin-top: 18px; list-style: none; display: grid; gap: 14px; }
+  details li { font-size: 15px; color: var(--muted); max-width: 85ch; }
   details li strong { color: var(--text); font-weight: 500; }
-  @media (max-width: 767px) { .pub { grid-template-columns: 1fr; gap: 6px; } }
 
-  /* Practice: two columns */
-  .practice { background: var(--surface); }
-  .cols { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-  .cols h3 { font-size: 13px; font-weight: 500; color: var(--muted); margin-bottom: 20px; }
-  .role { padding: 16px 0; }
-  .role + .role { border-top: 1px solid var(--line); }
-  .role strong { display: block; font-weight: 500; }
+  /* Practice */
+  .cols { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .cols h3 { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .06em; color: var(--accent); margin-bottom: 20px; }
+  .role { margin-bottom: 20px; }
+  .role strong { display: block; font-weight: 500; font-size: 17px; }
   .role span { font-size: 14px; color: var(--muted); }
-  @media (max-width: 767px) { .cols { grid-template-columns: 1fr; gap: 40px; } }
 
-  /* Honors marquee-free grid */
-  .honors { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .honor { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
-  .honor.wide { grid-column: span 2; background: var(--accent-soft); border-color: transparent; }
-  .honor .when { font-size: 13px; color: var(--muted); }
-  .honor h3 { margin-top: 10px; font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
-  .honor p { margin-top: 6px; font-size: 14px; color: var(--muted); }
-  @media (max-width: 767px) { .honors { grid-template-columns: 1fr; } .honor.wide { grid-column: auto; } }
+  /* Honors */
+  .honors-sec { background: var(--soft); }
+  .honors { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .honor { background: var(--paper); border-radius: var(--radius); padding: 28px; }
+  .honor.feat { background: var(--navy); color: var(--on-navy); }
+  .honor.w2 { grid-column: span 2; }
+  .honor.w3 { grid-column: span 3; }
+  .honor .when { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .honor.feat .when, .honor.feat p { color: var(--on-navy-muted); }
+  .honor h3 { margin-top: 8px; font-family: var(--serif); font-weight: 600; font-size: 22px; line-height: 1.3; }
+  .honor p { margin-top: 8px; font-size: 14px; color: var(--muted); }
 
-  /* Leadership + skills split */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-  .list-plain { margin-top: 28px; list-style: none; display: grid; gap: 18px; }
-  .list-plain li strong { display: block; font-weight: 500; }
-  .list-plain li span { font-size: 14px; color: var(--muted); }
-  @media (max-width: 767px) { .split { grid-template-columns: 1fr; gap: 56px; } }
+  /* Leadership + credentials */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .list { margin-top: 28px; list-style: none; }
+  .list li { padding: 16px 0; border-top: 1px solid var(--line); }
+  .list strong { display: block; font-weight: 500; }
+  .list span { font-size: 14px; color: var(--muted); }
 
   /* Contact */
-  .contact { padding: 120px 0 80px; }
-  .contact h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); max-width: 16ch; }
-  .contact .ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
-  footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 14px; color: var(--muted); }
+  .contact { background: var(--navy); color: var(--on-navy); padding: 104px 0 56px; }
+  .contact h2 { font-size: clamp(2.1rem, 4.4vw, 3.25rem); line-height: 1.12; max-width: 19ch; }
+  .contact .ctas { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .contact .btn-outline { border-color: var(--on-navy-muted); color: var(--on-navy); }
+  .contact .btn-outline:hover { background: rgb(255 255 255 / .08); }
+  .foot { margin-top: 88px; display: flex; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--on-navy-muted); }
 
-  /* Motion: reveal on enter, disabled under reduced motion */
+  /* Tablet */
+  @media (max-width: 1023px) {
+    .hero .wrap { grid-template-columns: 1fr 340px; gap: 56px; }
+    .band .wrap { grid-template-columns: 1fr 1fr; gap: 32px 40px; }
+    .area { padding: 24px 24px 0; }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 20px; }
+    nav .wrap { height: auto; flex-direction: column; align-items: stretch; gap: 10px; padding-top: 12px; padding-bottom: 12px; }
+    nav .name { font-size: 20px; }
+    nav ul { gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -20px; padding: 0 20px; }
+    nav ul::-webkit-scrollbar { display: none; }
+    nav ul a { display: block; padding: 7px 14px; border: 1px solid var(--line); border-radius: var(--radius); font-size: 14px; white-space: nowrap; color: var(--text); }
+    nav ul a:active { background: var(--soft); }
+    [id] { scroll-margin-top: 108px; }
+
+    .hero { padding: 40px 0 64px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { margin-top: 18px; font-size: 2.15rem; }
+    .hero .lead { margin-top: 18px; font-size: 17px; }
+    .hero .ctas { margin-top: 28px; }
+    .hero .ctas .btn { flex: 1; }
+    .portrait { order: -1; max-width: 172px; padding: 0 16px 16px 0; }
+    .portrait::before { inset: 16px 0 0 16px; }
+
+    .band { padding: 36px 0; }
+    .band .wrap { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+    .band h3 { font-size: 16px; }
+    .band p { font-size: 13px; }
+
+    section { padding: 72px 0; }
+    .sub { font-size: 16px; }
+    .areas { margin-top: 36px; grid-template-columns: 1fr; gap: 28px; }
+    .area, .area:first-child { padding: 20px 0 0; }
+    .area h3 { font-size: 21px; }
+
+    .pub { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
+    .pub .yr { padding-top: 0; }
+    .pub h3 { font-size: 18px; }
+
+    .cols { grid-template-columns: 1fr; gap: 40px; margin-top: 36px; }
+
+    .honors { grid-template-columns: 1fr; gap: 12px; }
+    .honor.w2, .honor.w3 { grid-column: auto; }
+    .honor { padding: 22px; }
+    .honor h3 { font-size: 19px; }
+
+    .split { grid-template-columns: 1fr; gap: 56px; }
+
+    .contact { padding: 72px 0 40px; }
+    .contact .ctas .btn { flex: 1; }
+    .foot { margin-top: 56px; flex-direction: column; gap: 4px; }
+  }
+
+  /* Motion: reveal on enter, off under reduced motion */
   @media (prefers-reduced-motion: no-preference) {
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
     .reveal.in { opacity: 1; transform: none; }
-    .hero .reveal:nth-child(2) { transition-delay: .08s; }
-    .hero .reveal:nth-child(3) { transition-delay: .16s; }
   }
 </style>
 </head>
@@ -204,48 +228,45 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap hero-grid">
+  <div class="wrap">
     <div>
-      <p class="eyebrow reveal">Counselor Educator &amp; Researcher</p>
-      <h1 class="reveal">Helping children and adolescents, and the counselors who <em>support</em> them.</h1>
-      <p class="lead reveal">PhD candidate at Ohio University studying cyberbullying, youth well-being, and counseling measurement.</p>
+      <p class="kicker reveal">Ohio University</p>
+      <h1 class="reveal">Helping children and adolescents, and the counselors who support them.</h1>
+      <p class="lead reveal">PhD candidate in Counselor Education &amp; Supervision, studying cyberbullying, youth well-being, and counseling measurement.</p>
       <div class="ctas reveal">
-        <a class="btn btn-primary" href="#publications">View research</a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        <a class="btn btn-primary" href="#research">View research</a>
+        <a class="btn btn-outline" href="CV_Chanhoon_Park_research.pdf">Download CV</a>
       </div>
     </div>
     <div class="portrait reveal">
-      <img src="portrait.png" alt="Portrait of Chanhoon Park">
+      <img src="portrait.png" alt="Portrait of Chanhoon Park" width="1122" height="1402" fetchpriority="high">
     </div>
   </div>
 </header>
 
-<div class="creds">
-  <div class="wrap creds-grid">
-    <div class="reveal"><h3>PhD, Ohio University</h3><p>Counselor Education &amp; Supervision, expected 2027</p></div>
-    <div class="reveal"><h3>MS, Seoul National University</h3><p>Educational Counseling, 2021</p></div>
-    <div class="reveal"><h3>Licensed Professional Counselor</h3><p>State of Ohio</p></div>
-    <div class="reveal"><h3>Trilingual</h3><p>Korean, English, Japanese</p></div>
+<div class="band">
+  <div class="wrap">
+    <div><h3>PhD, Ohio University</h3><p>Counselor Education &amp; Supervision, 2027</p></div>
+    <div><h3>MS, Seoul National University</h3><p>Educational Counseling, 2021</p></div>
+    <div><h3>Licensed Professional Counselor</h3><p>State of Ohio</p></div>
+    <div><h3>Trilingual</h3><p>Korean, English, Japanese</p></div>
   </div>
 </div>
 
 <section id="research">
   <div class="wrap">
-    <h2 class="reveal">What I study</h2>
+    <h2 class="reveal">Research</h2>
     <p class="sub reveal">Three connected lines of work, using longitudinal and multivariate methods in R, Mplus, Python, Amos, and SPSS.</p>
-    <div class="bento">
-      <article class="tile main reveal">
-        <div>
-          <h3>Cyberbullying and adolescent well-being</h3>
-          <p>How aggression, self-esteem, and peer relationships shape life satisfaction in Korean adolescents, including within-person change across the middle-to-high school transition.</p>
-        </div>
-        <div class="tags"><span>Moderated mediation</span><span>Longitudinal panels</span><span>Latent class analysis</span></div>
+    <div class="areas">
+      <article class="area reveal">
+        <h3>Cyberbullying and adolescent well-being</h3>
+        <p>How aggression, self-esteem, and peer relationships shape life satisfaction in Korean adolescents, including change across the middle-to-high school transition.</p>
       </article>
-      <article class="tile alt reveal">
+      <article class="area reveal">
         <h3>Measurement and validation</h3>
         <p>Validating scales for counseling ethics, personality, mental contamination, and group leader self-efficacy.</p>
       </article>
-      <article class="tile reveal">
+      <article class="area reveal">
         <h3>Supervision and counselor wellness</h3>
         <p>Supervising international students in rural Appalachia, competency-based mentorship, and faculty wellness.</p>
       </article>
@@ -253,18 +274,18 @@
   </div>
 </section>
 
-<section id="publications" style="padding-top:0">
+<section class="pubs-sec" id="publications">
   <div class="wrap">
     <h2 class="reveal">Selected publications</h2>
     <div class="pubs">
-      <div class="pub reveal"><span class="yr mono">In press</span><div><h3>Influence of Positive Childhood Experiences profiles on adolescents' bullying victimization and perpetration: A latent class analysis</h3><p>Song, Han, Park, Smith-Adcock, &amp; Shannonhouse. Journal of Interpersonal Violence.</p></div></div>
-      <div class="pub reveal"><span class="yr mono">2024</span><div><h3>Validation of the Korean Version of the Vancouver Obsessive Compulsive Inventory-Mental Contamination Scale (K-VOCI-MC)</h3><p>Lee, Kim, &amp; Park. Korean Journal of Counseling and Psychotherapy, 36(1). <a href="https://doi.org/10.23844/kjcp.2024.02.36.1.87">DOI</a></p></div></div>
-      <div class="pub reveal"><span class="yr mono">2023</span><div><h3>An exploratory study on the validation of the 5-Factor Personality (K-OCEAN) Scale of Korean college students</h3><p>Kim, Park, &amp; Han. Journal of Educational Community Research and Practice, 5(3). <a href="https://doi.org/10.23108/decrc.2023.5.3.1">DOI</a></p></div></div>
-      <div class="pub reveal"><span class="yr mono">2021</span><div><h3>Effectiveness of a character education group program based on social and emotional learning for junior high school students</h3><p>Kim, Woo, Park, &amp; Han. Korean Educational Psychology Association, 35(3). <a href="https://doi.org/10.17286/KJEP.2021.35.3.04">DOI</a></p></div></div>
-      <div class="pub reveal"><span class="yr mono">2021</span><div><h3>A study on the personal characteristics influencing youth's problematic gaming behaviors</h3><p>Kim, Woo, Park, &amp; Son. The SNU Journal of Education Research, 30(4). <a href="https://doi.org/10.54346/sjer.2021.30.4.47">DOI</a></p></div></div>
+      <div class="pub reveal"><span class="yr">In press</span><div><h3>Influence of Positive Childhood Experiences profiles on adolescents' bullying victimization and perpetration: A latent class analysis</h3><p>Song, Han, Park, Smith-Adcock, &amp; Shannonhouse. Journal of Interpersonal Violence.</p></div></div>
+      <div class="pub reveal"><span class="yr">2024</span><div><h3>Validation of the Korean Version of the Vancouver Obsessive Compulsive Inventory-Mental Contamination Scale</h3><p>Lee, Kim, &amp; Park. Korean Journal of Counseling and Psychotherapy, 36(1). <a href="https://doi.org/10.23844/kjcp.2024.02.36.1.87">DOI</a></p></div></div>
+      <div class="pub reveal"><span class="yr">2023</span><div><h3>An exploratory study on the validation of the 5-Factor Personality (K-OCEAN) Scale of Korean college students</h3><p>Kim, Park, &amp; Han. Journal of Educational Community Research and Practice, 5(3). <a href="https://doi.org/10.23108/decrc.2023.5.3.1">DOI</a></p></div></div>
+      <div class="pub reveal"><span class="yr">2021</span><div><h3>Effectiveness of a character education group program based on social and emotional learning for junior high school students</h3><p>Kim, Woo, Park, &amp; Han. Korean Educational Psychology Association, 35(3). <a href="https://doi.org/10.17286/KJEP.2021.35.3.04">DOI</a></p></div></div>
+      <div class="pub reveal"><span class="yr">2021</span><div><h3>A study on the personal characteristics influencing youth's problematic gaming behaviors</h3><p>Kim, Woo, Park, &amp; Son. The SNU Journal of Education Research, 30(4). <a href="https://doi.org/10.54346/sjer.2021.30.4.47">DOI</a></p></div></div>
     </div>
     <details>
-      <summary>Manuscripts under review</summary>
+      <summary>4 manuscripts under review</summary>
       <ul>
         <li><strong>Park &amp; Bhat.</strong> Aggression and cyberbullying perpetration in Korean adolescents: Within-person associations across the middle-to-high school transition.</li>
         <li><strong>Park, Song, &amp; Urkmez.</strong> Self-esteem, peer relationships, and life satisfaction among Korean adolescents: A moderated mediation model of cyberbullying perpetration.</li>
@@ -273,7 +294,7 @@
       </ul>
     </details>
     <details>
-      <summary>Recent presentations</summary>
+      <summary>Recent conference presentations</summary>
       <ul>
         <li><strong>ACA 2026.</strong> When peer protection fails: Cyberbullying, aggression and life satisfaction (poster).</li>
         <li><strong>OCA 2026.</strong> Empowering emerging counselors through competency-based supervision and mentorship.</li>
@@ -286,10 +307,9 @@
   </div>
 </section>
 
-<section class="practice" id="practice">
+<section id="practice">
   <div class="wrap">
     <h2 class="reveal">Clinical work and teaching</h2>
-    <p class="sub reveal">Counseling across college, community mental health, and school settings in Ohio and Seoul.</p>
     <div class="cols">
       <div class="reveal">
         <h3>Counseling</h3>
@@ -311,27 +331,26 @@
   </div>
 </section>
 
-<section id="honors">
+<section class="honors-sec" id="honors">
   <div class="wrap">
-    <p class="eyebrow reveal">Recognition</p>
     <h2 class="reveal">Honors and funding</h2>
     <div class="honors">
-      <div class="honor wide reveal"><span class="when mono">Oct 2026</span><h3>NCACES Research Grant, Principal Investigator</h3><p>Revisiting the factor structure of the Group Leader Self-Efficacy Instrument.</p></div>
-      <div class="honor reveal"><span class="when mono">Oct 2025</span><h3>Graduate Student Award</h3><p>Ohio Counseling Association</p></div>
-      <div class="honor reveal"><span class="when mono">2024, 2025</span><h3>ACES Conference Diversity Scholarship</h3><p>Awarded twice</p></div>
-      <div class="honor reveal"><span class="when mono">Apr 2025</span><h3>Donald A. Green Memorial Award</h3><p>Patton College of Education</p></div>
-      <div class="honor reveal"><span class="when mono">Mar 2025</span><h3>Exemplary Research Student Award</h3><p>Chi Sigma Iota, Alpha Chapter</p></div>
-      <div class="honor reveal"><span class="when mono">Fall 2025</span><h3>Fall Research &amp; Graduate Studies Fund</h3><p>Parental awareness of children's social media risks</p></div>
-      <div class="honor wide reveal"><span class="when mono">Dec 2020</span><h3>Outstanding Division 56 Poster Award, American Psychological Association</h3><p>Trajectories of PTSD symptoms after a natural disaster in South Korea.</p></div>
+      <div class="honor feat w2 reveal"><span class="when">Oct 2026</span><h3>NCACES Research Grant</h3><p>Principal Investigator. Revisiting the factor structure of the Group Leader Self-Efficacy Instrument.</p></div>
+      <div class="honor reveal"><span class="when">Oct 2025</span><h3>Graduate Student Award</h3><p>Ohio Counseling Association</p></div>
+      <div class="honor reveal"><span class="when">2024, 2025</span><h3>ACES Diversity Scholarship</h3><p>Awarded twice</p></div>
+      <div class="honor reveal"><span class="when">Apr 2025</span><h3>Donald A. Green Memorial Award</h3><p>Patton College of Education</p></div>
+      <div class="honor reveal"><span class="when">Mar 2025</span><h3>Exemplary Research Student Award</h3><p>Chi Sigma Iota, Alpha Chapter</p></div>
+      <div class="honor reveal"><span class="when">Fall 2025</span><h3>Fall Research &amp; Graduate Studies Fund</h3><p>Parental awareness of children's social media use and its risks</p></div>
+      <div class="honor feat w2 reveal"><span class="when">Dec 2020</span><h3>APA Division 56 Outstanding Poster Award</h3><p>Trajectories of PTSD symptoms after a natural disaster in South Korea.</p></div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<section>
   <div class="wrap split">
     <div class="reveal">
       <h2>Leadership</h2>
-      <ul class="list-plain">
+      <ul class="list">
         <li><strong>President</strong><span>Ohio College Counseling Association, 2026-present</span></li>
         <li><strong>Social Media &amp; Outreach Chair</strong><span>Southeastern Ohio Counseling Association, 2024-present</span></li>
         <li><strong>Social Media &amp; Outreach Chair</strong><span>Chi Sigma Iota, Alpha Chapter, 2024-2025</span></li>
@@ -340,7 +359,7 @@
     </div>
     <div class="reveal">
       <h2>Credentials</h2>
-      <ul class="list-plain">
+      <ul class="list">
         <li><strong>Licensed Professional Counselor</strong><span>Ohio</span></li>
         <li><strong>Certified Counseling Psychologist</strong><span>South Korea</span></li>
         <li><strong>Certified Youth Counselor</strong><span>South Korea</span></li>
@@ -350,18 +369,18 @@
   </div>
 </section>
 
-<section class="contact" id="contact">
+<footer class="contact" id="contact">
   <div class="wrap">
-    <h2 class="reveal">Open to faculty and research collaborations.</h2>
+    <h2 class="reveal">Open to faculty positions and research collaborations.</h2>
     <div class="ctas reveal">
-      <a class="btn btn-primary" href="mailto:cp121423@ohio.edu">Get in touch</a>
-      <a class="btn btn-ghost" href="CV_Chanhoon_Park_research.pdf">Download CV</a>
+      <a class="btn btn-light" href="mailto:cp121423@ohio.edu">cp121423@ohio.edu</a>
+      <a class="btn btn-outline" href="CV_Chanhoon_Park_research.pdf">Download CV</a>
+    </div>
+    <div class="foot">
+      <span>Chanhoon Park, Ohio University</span>
+      <span>Licensed Professional Counselor, Ohio</span>
     </div>
   </div>
-</section>
-
-<footer>
-  <div class="wrap">Chanhoon Park, Ohio University</div>
 </footer>
 
 <script>
@@ -371,7 +390,7 @@
   } else {
     const io = new IntersectionObserver(entries => entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    }), { threshold: 0.15 });
+    }), { threshold: 0.12 });
     els.forEach(e => io.observe(e));
   }
 </script>
