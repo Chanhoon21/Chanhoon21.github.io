@@ -9,205 +9,201 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
-  /* Design read: academic portfolio for search committees, institutional language.
-     Serif display justified by the publication/academic genre. Figma source: hVNqi1puvPRatnwPLZqRV8 */
+  /* Design read: academic conference poster. Panels with solid title bars, numbered sections,
+     Ohio University green as institutional color, venue badges for presentations. */
   :root {
-    --bg: #f6f7f9;
-    --paper: #fbfcfd;
-    --soft: #e7ecf3;
-    --text: #141a24;
-    --muted: #5a6474;
-    --line: #dce1e8;
-    --navy: #14284b;
-    --on-navy: #fbfcfd;
-    --on-navy-muted: #b7c3d6;
-    --accent: #14284b;
-    --radius: 4px;
+    --bg: #f3f1ea; --paper: #fffdf8; --soft: #e8e4d8; --text: #171a17; --muted: #5b615b;
+    --line: #d6d1c3; --brand: #00694e; --brand-ink: #fffdf8; --brand-soft: #d9e8e1;
+    --accent: #00694e; --gold: #b58a1b; --radius: 6px;
     --serif: "Source Serif 4", Georgia, serif;
     --sans: "IBM Plex Sans", system-ui, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0f1522; --paper: #131a29; --soft: #182136; --text: #e9edf3; --muted: #9aa5b6;
-      --line: #263049; --navy: #1b2f55; --on-navy: #eef2f8; --on-navy-muted: #a9b6cc; --accent: #9db6e0;
+      --bg: #101412; --paper: #161b18; --soft: #1e2521; --text: #ecefe9; --muted: #9ea69f;
+      --line: #2b332e; --brand: #0d7a5c; --brand-ink: #f1f5f2; --brand-soft: #1b2e27; --accent: #6fcca8; --gold: #d8b04a;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0f1522; --paper: #131a29; --soft: #182136; --text: #e9edf3; --muted: #9aa5b6;
-    --line: #263049; --navy: #1b2f55; --on-navy: #eef2f8; --on-navy-muted: #a9b6cc; --accent: #9db6e0;
+    --bg: #101412; --paper: #161b18; --soft: #1e2521; --text: #ecefe9; --muted: #9ea69f;
+    --line: #2b332e; --brand: #0d7a5c; --brand-ink: #f1f5f2; --brand-soft: #1b2e27; --accent: #6fcca8; --gold: #d8b04a;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(color-mix(in srgb, var(--text) 7%, transparent) 1px, transparent 1px); background-size: 22px 22px; }
   a { color: inherit; }
   img { max-width: 100%; display: block; }
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-  .serif { font-family: var(--serif); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+  [id] { scroll-margin-top: 84px; }
   .mono { font-family: var(--mono); }
-  [id] { scroll-margin-top: 80px; }
 
   /* Nav */
-  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  nav .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-  nav .name { font-family: var(--serif); font-weight: 600; font-size: 22px; color: var(--accent); text-decoration: none; }
-  nav ul { display: flex; gap: 36px; list-style: none; }
-  nav ul a { font-size: 15px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s; }
-  nav ul a:hover { color: var(--text); }
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav .wrap { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  nav .name { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 600; font-size: 20px; text-decoration: none; }
+  nav .name i { width: 12px; height: 12px; background: var(--brand); border-radius: 2px; }
+  nav ul { display: flex; gap: 6px; list-style: none; }
+  nav ul a { display: block; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s, background .2s; }
+  nav ul a:hover { color: var(--text); background: var(--soft); }
+  nav ul span { font-family: var(--mono); font-size: 11px; color: var(--accent); margin-right: 6px; }
 
   /* Buttons */
-  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; transition: transform .2s cubic-bezier(.16,1,.3,1), background .2s, color .2s; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: var(--radius); font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; transition: transform .2s cubic-bezier(.16,1,.3,1), background .2s; }
   .btn:active { transform: translateY(1px) scale(.98); }
-  .btn-primary { background: var(--navy); color: var(--on-navy); }
+  .btn-primary { background: var(--brand); color: var(--brand-ink); }
   .btn-primary:hover { transform: translateY(-2px); }
-  .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
+  .btn-outline { border: 1px solid var(--text); color: var(--text); }
   .btn-outline:hover { background: var(--soft); }
-  .btn-light { background: var(--on-navy); color: #14284b; }
+  .btn-light { background: var(--brand-ink); color: #0b3d2e; }
 
-  /* Hero */
-  .hero { padding: 88px 0 104px; }
-  .hero .wrap { display: grid; grid-template-columns: 1fr 440px; gap: 96px; align-items: center; }
-  .kicker { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
-  .hero h1 { margin-top: 28px; font-family: var(--serif); font-weight: 600; font-size: clamp(2.3rem, 4.4vw, 3.9rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 16ch; }
-  .hero .lead { margin-top: 28px; font-size: 19px; color: var(--muted); max-width: 44ch; }
-  .hero .ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .portrait { position: relative; padding: 0 40px 40px 0; }
-  .portrait::before { content: ""; position: absolute; inset: 40px 0 0 40px; background: var(--navy); border-radius: var(--radius); }
-  .portrait img { position: relative; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); background: var(--soft); }
+  /* Poster board: every section is a panel with a title bar */
+  .board { padding: 40px 0 80px; display: grid; gap: 28px; }
+  .panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgb(0 0 0 / .25); }
+  .bar { display: flex; align-items: baseline; gap: 16px; padding: 14px 28px; background: var(--brand); color: var(--brand-ink); }
+  .bar .no { font-family: var(--mono); font-size: 13px; opacity: .8; }
+  .bar h2 { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: -.01em; line-height: 1.3; }
+  .bar .meta { margin-left: auto; font-family: var(--mono); font-size: 12px; opacity: .75; }
+  .body { padding: 32px 28px; }
 
-  /* Credentials band */
-  .band { background: var(--navy); color: var(--on-navy); padding: 48px 0; }
-  .band .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
-  .band h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.3; }
-  .band p { margin-top: 6px; font-size: 14px; color: var(--on-navy-muted); }
+  /* Title block (poster header) */
+  .title { display: grid; grid-template-columns: 1fr 300px; }
+  .title .txt { padding: 48px 48px 44px; border-right: 1px solid var(--line); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; padding: 4px 10px; border-radius: 999px; background: var(--brand-soft); color: var(--accent); }
+  .tag.gold { background: color-mix(in srgb, var(--gold) 16%, transparent); color: var(--gold); }
+  .title h1 { margin-top: 24px; font-family: var(--serif); font-weight: 600; font-size: clamp(2.3rem, 4.6vw, 4rem); line-height: 1.05; letter-spacing: -.025em; max-width: 17ch; }
+  .author { margin-top: 24px; font-size: 18px; }
+  .author strong { font-weight: 600; }
+  .author sup { font-family: var(--mono); font-size: 11px; color: var(--accent); }
+  .affil { margin-top: 4px; font-size: 14px; color: var(--muted); }
+  .title .ctas { margin-top: 32px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .title figure { position: relative; background: var(--soft); }
+  .title figure img { width: 100%; height: 100%; object-fit: cover; }
+  .title figcaption { position: absolute; left: 12px; bottom: 12px; font-family: var(--mono); font-size: 11px; padding: 4px 8px; background: var(--paper); border-radius: 4px; color: var(--muted); }
 
-  /* Sections */
-  section { padding: 112px 0; }
-  h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 3.4vw, 2.65rem); line-height: 1.15; letter-spacing: -0.015em; }
-  .sub { margin-top: 16px; font-size: 18px; color: var(--muted); max-width: 58ch; }
+  /* Key facts row */
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .fact { padding: 22px 28px; border-left: 1px solid var(--line); }
+  .fact:first-child { border-left: 0; }
+  .fact b { display: block; font-family: var(--serif); font-weight: 600; font-size: 30px; line-height: 1.1; color: var(--accent); }
+  .fact span { font-size: 13px; color: var(--muted); }
+
+  /* Two-column poster grid */
+  .grid2 { display: grid; grid-template-columns: 1.35fr 1fr; gap: 28px; align-items: start; }
+  .stack { display: grid; gap: 28px; }
 
   /* Research */
-  .areas { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); }
-  .area { padding: 28px 40px 0; border-top: 1px solid var(--line); }
-  .area:first-child { padding-left: 0; border-top: 3px solid var(--accent); }
-  .area h3 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.25; }
-  .area p { margin-top: 14px; font-size: 16px; color: var(--muted); }
+  .areas { display: grid; gap: 0; counter-reset: a; }
+  .area { display: grid; grid-template-columns: 56px 1fr; gap: 4px 18px; padding: 22px 0; border-top: 1px dashed var(--line); }
+  .area:first-child { border-top: 0; padding-top: 0; }
+  .area::before { counter-increment: a; content: counter(a, decimal-leading-zero); grid-row: span 3; font-family: var(--mono); font-size: 13px; color: var(--brand-ink); background: var(--brand); width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; }
+  .area h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; line-height: 1.3; }
+  .area p { font-size: 15px; color: var(--muted); }
+  .area .tags { margin-top: 8px; }
+  .methods { margin-top: 8px; padding: 16px 18px; background: var(--soft); border-radius: var(--radius); font-size: 14px; }
+  .methods b { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .06em; color: var(--accent); margin-right: 8px; }
 
-  /* Publications */
-  .pubs-sec { background: var(--paper); }
-  .pubs { margin-top: 40px; }
-  .pub { display: grid; grid-template-columns: 120px 1fr; gap: 40px; padding: 24px 0; border-top: 1px solid var(--line); }
-  .pub .yr { font-family: var(--mono); font-size: 14px; color: var(--accent); padding-top: 4px; }
-  .pub h3 { font-family: var(--serif); font-weight: 400; font-size: 20px; line-height: 1.35; }
-  .pub p { margin-top: 6px; font-size: 14px; color: var(--muted); }
-  .pub a { color: var(--accent); font-weight: 500; text-decoration: none; }
-  .pub a:hover { text-decoration: underline; }
-  details { border-top: 1px solid var(--line); padding: 22px 0; }
-  details:last-of-type { border-bottom: 1px solid var(--line); }
-  .pubs + details { margin-top: 24px; }
-  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: var(--accent); }
+  /* Presentations timeline */
+  .talks { list-style: none; position: relative; }
+  .talks::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .talks li { position: relative; padding: 0 0 20px 28px; font-size: 15px; }
+  .talks li:last-child { padding-bottom: 0; }
+  .talks li::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--brand); }
+  .talks li.now::before { background: var(--brand); }
+  .venue { display: inline-block; font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--accent); margin-bottom: 2px; }
+  .talks p { color: var(--muted); line-height: 1.5; }
+
+  /* Publications (reference list style) */
+  .refs { list-style: none; counter-reset: r; }
+  .refs li { counter-increment: r; display: grid; grid-template-columns: 36px 1fr auto; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .refs li:first-child { border-top: 0; padding-top: 0; }
+  .refs li::before { content: "[" counter(r) "]"; font-family: var(--mono); font-size: 13px; color: var(--accent); padding-top: 3px; }
+  .refs h3 { font-family: var(--serif); font-weight: 400; font-size: 18px; line-height: 1.4; }
+  .refs p { margin-top: 4px; font-size: 14px; color: var(--muted); }
+  .refs p em { font-style: italic; }
+  .refs .yr { font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; padding-top: 3px; }
+  .refs a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  .refs a:hover { text-decoration: underline; }
+  details { margin-top: 20px; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 500; font-size: 15px; }
   summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; font-family: var(--mono); font-size: 20px; }
-  details[open] summary::after { content: "-"; }
-  details ul { margin-top: 18px; list-style: none; display: grid; gap: 14px; }
-  details li { font-size: 15px; color: var(--muted); max-width: 85ch; }
+  summary::after { content: "+"; font-family: var(--mono); font-size: 18px; color: var(--accent); }
+  details[open] summary::after { content: "–"; }
+  details ul { margin-top: 14px; list-style: none; display: grid; gap: 12px; }
+  details li { font-size: 14px; color: var(--muted); }
   details li strong { color: var(--text); font-weight: 500; }
 
-  /* Practice */
-  .cols { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-  .cols h3 { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .06em; color: var(--accent); margin-bottom: 20px; }
-  .role { margin-bottom: 20px; }
-  .role strong { display: block; font-weight: 500; font-size: 17px; }
-  .role span { font-size: 14px; color: var(--muted); }
+  /* Practice / lists */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .label { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .list { list-style: none; }
+  .list li { padding: 12px 0; border-top: 1px solid var(--line); }
+  .list li:first-child { border-top: 0; padding-top: 0; }
+  .list strong { display: block; font-weight: 500; font-size: 16px; }
+  .list span { font-size: 13px; color: var(--muted); }
 
   /* Honors */
-  .honors-sec { background: var(--soft); }
-  .honors { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .honor { background: var(--paper); border-radius: var(--radius); padding: 28px; }
-  .honor.feat { background: var(--navy); color: var(--on-navy); }
-  .honor.w2 { grid-column: span 2; }
-  .honor.w3 { grid-column: span 3; }
-  .honor .when { font-family: var(--mono); font-size: 13px; color: var(--accent); }
-  .honor.feat .when, .honor.feat p { color: var(--on-navy-muted); }
-  .honor h3 { margin-top: 8px; font-family: var(--serif); font-weight: 600; font-size: 22px; line-height: 1.3; }
-  .honor p { margin-top: 8px; font-size: 14px; color: var(--muted); }
-
-  /* Leadership + credentials */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-  .list { margin-top: 28px; list-style: none; }
-  .list li { padding: 16px 0; border-top: 1px solid var(--line); }
-  .list strong { display: block; font-weight: 500; }
-  .list span { font-size: 14px; color: var(--muted); }
+  .honors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .honor { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .honor.feat { grid-column: span 2; background: var(--brand-soft); border-color: transparent; }
+  .honor .when { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .honor h3 { margin-top: 6px; font-family: var(--serif); font-weight: 600; font-size: 19px; line-height: 1.3; }
+  .honor p { margin-top: 6px; font-size: 13px; color: var(--muted); }
 
   /* Contact */
-  .contact { background: var(--navy); color: var(--on-navy); padding: 104px 0 56px; }
-  .contact h2 { font-size: clamp(2.1rem, 4.4vw, 3.25rem); line-height: 1.12; max-width: 19ch; }
-  .contact .ctas { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .contact .btn-outline { border-color: var(--on-navy-muted); color: var(--on-navy); }
-  .contact .btn-outline:hover { background: rgb(255 255 255 / .08); }
-  .foot { margin-top: 88px; display: flex; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--on-navy-muted); }
+  .contact { background: var(--brand); color: var(--brand-ink); border: 0; }
+  .contact .body { padding: 56px 48px 40px; }
+  .contact h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.02em; max-width: 20ch; }
+  .contact .ctas { margin-top: 28px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .contact .btn-outline { border-color: color-mix(in srgb, var(--brand-ink) 55%, transparent); color: var(--brand-ink); }
+  .contact .btn-outline:hover { background: rgb(255 255 255 / .1); }
+  .foot { margin-top: 56px; padding-top: 18px; border-top: 1px solid rgb(255 255 255 / .2); display: flex; justify-content: space-between; gap: 16px; font-family: var(--mono); font-size: 12px; opacity: .8; }
 
-  /* Tablet */
   @media (max-width: 1023px) {
-    .hero .wrap { grid-template-columns: 1fr 340px; gap: 56px; }
-    .band .wrap { grid-template-columns: 1fr 1fr; gap: 32px 40px; }
-    .area { padding: 24px 24px 0; }
+    .title { grid-template-columns: 1fr 240px; }
+    .title .txt { padding: 36px; }
+    .grid2 { grid-template-columns: 1fr; }
+    nav ul span { display: none; }
   }
-
-  /* Mobile */
   @media (max-width: 767px) {
     body { font-size: 16px; }
-    .wrap { padding: 0 20px; }
-    nav .wrap { height: auto; flex-direction: column; align-items: stretch; gap: 10px; padding-top: 12px; padding-bottom: 12px; }
-    nav .name { font-size: 20px; }
-    nav ul { gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -20px; padding: 0 20px; }
+    .wrap { padding: 0 16px; }
+    nav .wrap { height: auto; flex-direction: column; align-items: stretch; gap: 8px; padding-top: 12px; padding-bottom: 10px; }
+    nav ul { overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
     nav ul::-webkit-scrollbar { display: none; }
-    nav ul a { display: block; padding: 7px 14px; border: 1px solid var(--line); border-radius: var(--radius); font-size: 14px; white-space: nowrap; color: var(--text); }
-    nav ul a:active { background: var(--soft); }
-    [id] { scroll-margin-top: 108px; }
-
-    .hero { padding: 40px 0 64px; }
-    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
-    .hero h1 { margin-top: 18px; font-size: 2.15rem; }
-    .hero .lead { margin-top: 18px; font-size: 17px; }
-    .hero .ctas { margin-top: 28px; }
-    .hero .ctas .btn { flex: 1; }
-    .portrait { order: -1; max-width: 172px; padding: 0 16px 16px 0; }
-    .portrait::before { inset: 16px 0 0 16px; }
-
-    .band { padding: 36px 0; }
-    .band .wrap { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
-    .band h3 { font-size: 16px; }
-    .band p { font-size: 13px; }
-
-    section { padding: 72px 0; }
-    .sub { font-size: 16px; }
-    .areas { margin-top: 36px; grid-template-columns: 1fr; gap: 28px; }
-    .area, .area:first-child { padding: 20px 0 0; }
-    .area h3 { font-size: 21px; }
-
-    .pub { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
-    .pub .yr { padding-top: 0; }
-    .pub h3 { font-size: 18px; }
-
-    .cols { grid-template-columns: 1fr; gap: 40px; margin-top: 36px; }
-
-    .honors { grid-template-columns: 1fr; gap: 12px; }
-    .honor.w2, .honor.w3 { grid-column: auto; }
-    .honor { padding: 22px; }
-    .honor h3 { font-size: 19px; }
-
-    .split { grid-template-columns: 1fr; gap: 56px; }
-
-    .contact { padding: 72px 0 40px; }
-    .contact .ctas .btn { flex: 1; }
-    .foot { margin-top: 56px; flex-direction: column; gap: 4px; }
+    nav ul a { white-space: nowrap; border: 1px solid var(--line); color: var(--text); }
+    [id] { scroll-margin-top: 104px; }
+    .board { padding: 20px 0 48px; gap: 18px; }
+    .title { grid-template-columns: 1fr; }
+    .title figure { order: -1; height: 260px; }
+    .title figure img { object-position: center 20%; }
+    .title .txt { padding: 28px 20px; border-right: 0; }
+    .title h1 { font-size: 2.1rem; margin-top: 18px; }
+    .title .ctas .btn { flex: 1; justify-content: center; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .fact { padding: 16px 20px; border-top: 1px solid var(--line); }
+    .fact:nth-child(odd) { border-left: 0; }
+    .fact:nth-child(-n+2) { border-top: 0; }
+    .fact b { font-size: 24px; }
+    .bar { padding: 12px 20px; flex-wrap: wrap; gap: 4px 12px; }
+    .bar h2 { font-size: 19px; }
+    .bar .meta { margin-left: 0; width: 100%; }
+    .body { padding: 24px 20px; }
+    .refs li { grid-template-columns: 30px 1fr; }
+    .refs .yr { grid-column: 2; grid-row: 1; padding-top: 0; }
+    .refs h3 { font-size: 17px; }
+    .cols { grid-template-columns: 1fr; gap: 28px; }
+    .honors { grid-template-columns: 1fr; }
+    .honor.feat { grid-column: auto; }
+    .contact .body { padding: 40px 20px 28px; }
+    .contact .ctas .btn { flex: 1; justify-content: center; }
+    .foot { flex-direction: column; gap: 4px; }
   }
-
-  /* Motion: reveal on enter, off under reduced motion */
   @media (prefers-reduced-motion: no-preference) {
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
     .reveal.in { opacity: 1; transform: none; }
   }
 </style>
@@ -216,172 +212,191 @@
 
 <nav>
   <div class="wrap">
-    <a class="name" href="#top">Chanhoon Park</a>
+    <a class="name" href="#top"><i></i>Chanhoon Park</a>
     <ul>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#practice">Practice</a></li>
-      <li><a href="#honors">Honors</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#research"><span>01</span>Research</a></li>
+      <li><a href="#publications"><span>02</span>Publications</a></li>
+      <li><a href="#practice"><span>03</span>Practice</a></li>
+      <li><a href="#honors"><span>04</span>Honors</a></li>
+      <li><a href="#contact"><span>05</span>Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <p class="kicker reveal">Ohio University</p>
-      <h1 class="reveal">Helping children and adolescents, and the counselors who support them.</h1>
-      <p class="lead reveal">PhD candidate in Counselor Education &amp; Supervision, studying cyberbullying, youth well-being, and counseling measurement.</p>
-      <div class="ctas reveal">
-        <a class="btn btn-primary" href="#research">View research</a>
-        <a class="btn btn-outline" href="CV_Chanhoon_Park_research.pdf">Download CV</a>
+<main class="wrap board">
+
+  <header class="panel reveal" id="top">
+    <div class="title">
+      <div class="txt">
+        <div class="tags">
+          <span class="tag">Counselor Education &amp; Supervision</span>
+          <span class="tag gold">PhD Candidate · 2027</span>
+        </div>
+        <h1>Helping children and adolescents, and the counselors who support them.</h1>
+        <p class="author"><strong>Chanhoon Park</strong>, LPC<sup>1</sup></p>
+        <p class="affil"><sup class="mono">1</sup> Patton College of Education, Ohio University · Cyberbullying, youth well-being, counseling measurement</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#research">View research</a>
+          <a class="btn btn-outline" href="CV_Chanhoon_Park_research.pdf">Download CV ↓</a>
+        </div>
+      </div>
+      <figure>
+        <img src="portrait.png" alt="Portrait of Chanhoon Park" width="1122" height="1402" fetchpriority="high">
+        <figcaption>Athens, Ohio</figcaption>
+      </figure>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>5</b><span>Peer-reviewed publications</span></div>
+      <div class="fact"><b>8+</b><span>Conference presentations</span></div>
+      <div class="fact"><b>8</b><span>Honors and grants</span></div>
+      <div class="fact"><b>3</b><span>Languages: KO · EN · JA</span></div>
+    </div>
+  </header>
+
+  <div class="grid2">
+    <section class="panel reveal" id="research">
+      <div class="bar"><span class="no">01</span><h2>Research</h2><span class="meta">R · Mplus · Python · Amos · SPSS</span></div>
+      <div class="body">
+        <div class="areas">
+          <article class="area">
+            <h3>Cyberbullying and adolescent well-being</h3>
+            <p>How aggression, self-esteem, and peer relationships shape life satisfaction in Korean adolescents, including change across the middle-to-high school transition.</p>
+            <div class="tags"><span class="tag">Longitudinal</span><span class="tag">Moderated mediation</span></div>
+          </article>
+          <article class="area">
+            <h3>Measurement and validation</h3>
+            <p>Validating scales for counseling ethics, personality, mental contamination, and group leader self-efficacy.</p>
+            <div class="tags"><span class="tag">CFA / EFA</span><span class="tag">Scale adaptation</span></div>
+          </article>
+          <article class="area">
+            <h3>Supervision and counselor wellness</h3>
+            <p>Supervising international students in rural Appalachia, competency-based mentorship, and faculty wellness.</p>
+            <div class="tags"><span class="tag">IPA</span><span class="tag">Qualitative</span></div>
+          </article>
+        </div>
+        <p class="methods"><b>METHODS</b>Longitudinal and multivariate modeling, latent class analysis, and instrument validation.</p>
+      </div>
+    </section>
+
+    <section class="panel reveal">
+      <div class="bar"><span class="no">01b</span><h2>Recent presentations</h2></div>
+      <div class="body">
+        <ul class="talks">
+          <li class="now"><span class="venue">ACA 2026</span><p>When peer protection fails: Cyberbullying, aggression and life satisfaction (poster)</p></li>
+          <li class="now"><span class="venue">OCA 2026</span><p>Empowering emerging counselors through competency-based supervision and mentorship</p></li>
+          <li><span class="venue">ACES 2025 · Philadelphia</span><p>Faculty wellness in counselor education: The Indivisible Self Model (round table)</p></li>
+          <li><span class="venue">All Ohio Counselors 2025</span><p>Fostering wellness for college students with autism spectrum disorder</p></li>
+          <li><span class="venue">ACA 2025 · Orlando</span><p>Three posters on adolescent self-esteem, teacher victimization, and post-traumatic growth</p></li>
+          <li><span class="venue">NCACES 2024 · Chicago</span><p>Integrating social justice advocacy in counseling supervision (poster)</p></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel reveal" id="publications">
+    <div class="bar"><span class="no">02</span><h2>Selected publications</h2><span class="meta">References</span></div>
+    <div class="body">
+      <ol class="refs">
+        <li><div><h3>Influence of Positive Childhood Experiences profiles on adolescents' bullying victimization and perpetration: A latent class analysis</h3><p>Song, Han, <strong>Park</strong>, Smith-Adcock, &amp; Shannonhouse. <em>Journal of Interpersonal Violence.</em></p></div><span class="yr">In press</span></li>
+        <li><div><h3>Validation of the Korean Version of the Vancouver Obsessive Compulsive Inventory-Mental Contamination Scale</h3><p>Lee, Kim, &amp; <strong>Park</strong>. <em>Korean Journal of Counseling and Psychotherapy, 36</em>(1). <a href="https://doi.org/10.23844/kjcp.2024.02.36.1.87">DOI ↗</a></p></div><span class="yr">2024</span></li>
+        <li><div><h3>An exploratory study on the validation of the 5-Factor Personality (K-OCEAN) Scale of Korean college students</h3><p>Kim, <strong>Park</strong>, &amp; Han. <em>Journal of Educational Community Research and Practice, 5</em>(3). <a href="https://doi.org/10.23108/decrc.2023.5.3.1">DOI ↗</a></p></div><span class="yr">2023</span></li>
+        <li><div><h3>Effectiveness of a character education group program based on social and emotional learning for junior high school students</h3><p>Kim, Woo, <strong>Park</strong>, &amp; Han. <em>Korean Educational Psychology Association, 35</em>(3). <a href="https://doi.org/10.17286/KJEP.2021.35.3.04">DOI ↗</a></p></div><span class="yr">2021</span></li>
+        <li><div><h3>A study on the personal characteristics influencing youth's problematic gaming behaviors</h3><p>Kim, Woo, <strong>Park</strong>, &amp; Son. <em>The SNU Journal of Education Research, 30</em>(4). <a href="https://doi.org/10.54346/sjer.2021.30.4.47">DOI ↗</a></p></div><span class="yr">2021</span></li>
+      </ol>
+      <details>
+        <summary>4 manuscripts under review</summary>
+        <ul>
+          <li><strong>Park &amp; Bhat.</strong> Aggression and cyberbullying perpetration in Korean adolescents: Within-person associations across the middle-to-high school transition.</li>
+          <li><strong>Park, Song, &amp; Urkmez.</strong> Self-esteem, peer relationships, and life satisfaction among Korean adolescents: A moderated mediation model of cyberbullying perpetration.</li>
+          <li><strong>Park, Mukula, Ndeezi, &amp; Adarkwa.</strong> When cyberbullying undermines friendship: A moderated mediation analysis of self-esteem and life satisfaction in Korean adolescents.</li>
+          <li><strong>Mukula, Bevardi, Park, Kateregga, &amp; Pillay.</strong> Supervising international counseling students in rural Appalachia: An interpretative phenomenological analysis.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section class="panel reveal" id="practice">
+    <div class="bar"><span class="no">03</span><h2>Clinical work and teaching</h2></div>
+    <div class="body cols">
+      <div>
+        <p class="label">Counseling</p>
+        <ul class="list">
+          <li><strong>Clinical Counselor Graduate Assistant</strong><span>Ohio University Counseling &amp; Psychological Services, 2025-2026</span></li>
+          <li><strong>School Counseling Intern</strong><span>Nelsonville-York Elementary, 2025-2026</span></li>
+          <li><strong>Counseling Intern</strong><span>Hopewell Health Center, 2024-2025</span></li>
+          <li><strong>Counseling Practicum</strong><span>Scioto Paint Valley Mental Health Center, 2024</span></li>
+          <li><strong>Counseling Intern</strong><span>Seoul National University Center for Campus Life &amp; Culture, 2019-2022</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Teaching and supervision</p>
+        <ul class="list">
+          <li><strong>Graduate Teaching Assistant</strong><span>Professional School Counseling; Counseling Children and Adolescents, 2025</span></li>
+          <li><strong>Graduate Teaching Instructor</strong><span>Ethical Issues in Human Services; Human Service Professions, 2024</span></li>
+          <li><strong>Group Supervisor</strong><span>Master's group counseling, Ohio University, Fall 2024</span></li>
+          <li><strong>Individual Supervisor</strong><span>Counselors-in-training, Ohio University, Fall 2023</span></li>
+          <li><strong>College of Fine Arts Liaison</strong><span>Ohio University CPS, 2025-2026</span></li>
+        </ul>
       </div>
     </div>
-    <div class="portrait reveal">
-      <img src="portrait.png" alt="Portrait of Chanhoon Park" width="1122" height="1402" fetchpriority="high">
-    </div>
-  </div>
-</header>
+  </section>
 
-<div class="band">
-  <div class="wrap">
-    <div><h3>PhD, Ohio University</h3><p>Counselor Education &amp; Supervision, 2027</p></div>
-    <div><h3>MS, Seoul National University</h3><p>Educational Counseling, 2021</p></div>
-    <div><h3>Licensed Professional Counselor</h3><p>State of Ohio</p></div>
-    <div><h3>Trilingual</h3><p>Korean, English, Japanese</p></div>
-  </div>
-</div>
-
-<section id="research">
-  <div class="wrap">
-    <h2 class="reveal">Research</h2>
-    <p class="sub reveal">Three connected lines of work, using longitudinal and multivariate methods in R, Mplus, Python, Amos, and SPSS.</p>
-    <div class="areas">
-      <article class="area reveal">
-        <h3>Cyberbullying and adolescent well-being</h3>
-        <p>How aggression, self-esteem, and peer relationships shape life satisfaction in Korean adolescents, including change across the middle-to-high school transition.</p>
-      </article>
-      <article class="area reveal">
-        <h3>Measurement and validation</h3>
-        <p>Validating scales for counseling ethics, personality, mental contamination, and group leader self-efficacy.</p>
-      </article>
-      <article class="area reveal">
-        <h3>Supervision and counselor wellness</h3>
-        <p>Supervising international students in rural Appalachia, competency-based mentorship, and faculty wellness.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="pubs-sec" id="publications">
-  <div class="wrap">
-    <h2 class="reveal">Selected publications</h2>
-    <div class="pubs">
-      <div class="pub reveal"><span class="yr">In press</span><div><h3>Influence of Positive Childhood Experiences profiles on adolescents' bullying victimization and perpetration: A latent class analysis</h3><p>Song, Han, Park, Smith-Adcock, &amp; Shannonhouse. Journal of Interpersonal Violence.</p></div></div>
-      <div class="pub reveal"><span class="yr">2024</span><div><h3>Validation of the Korean Version of the Vancouver Obsessive Compulsive Inventory-Mental Contamination Scale</h3><p>Lee, Kim, &amp; Park. Korean Journal of Counseling and Psychotherapy, 36(1). <a href="https://doi.org/10.23844/kjcp.2024.02.36.1.87">DOI</a></p></div></div>
-      <div class="pub reveal"><span class="yr">2023</span><div><h3>An exploratory study on the validation of the 5-Factor Personality (K-OCEAN) Scale of Korean college students</h3><p>Kim, Park, &amp; Han. Journal of Educational Community Research and Practice, 5(3). <a href="https://doi.org/10.23108/decrc.2023.5.3.1">DOI</a></p></div></div>
-      <div class="pub reveal"><span class="yr">2021</span><div><h3>Effectiveness of a character education group program based on social and emotional learning for junior high school students</h3><p>Kim, Woo, Park, &amp; Han. Korean Educational Psychology Association, 35(3). <a href="https://doi.org/10.17286/KJEP.2021.35.3.04">DOI</a></p></div></div>
-      <div class="pub reveal"><span class="yr">2021</span><div><h3>A study on the personal characteristics influencing youth's problematic gaming behaviors</h3><p>Kim, Woo, Park, &amp; Son. The SNU Journal of Education Research, 30(4). <a href="https://doi.org/10.54346/sjer.2021.30.4.47">DOI</a></p></div></div>
-    </div>
-    <details>
-      <summary>4 manuscripts under review</summary>
-      <ul>
-        <li><strong>Park &amp; Bhat.</strong> Aggression and cyberbullying perpetration in Korean adolescents: Within-person associations across the middle-to-high school transition.</li>
-        <li><strong>Park, Song, &amp; Urkmez.</strong> Self-esteem, peer relationships, and life satisfaction among Korean adolescents: A moderated mediation model of cyberbullying perpetration.</li>
-        <li><strong>Park, Mukula, Ndeezi, &amp; Adarkwa.</strong> When cyberbullying undermines friendship: A moderated mediation analysis of self-esteem and life satisfaction in Korean adolescents.</li>
-        <li><strong>Mukula, Bevardi, Park, Kateregga, &amp; Pillay.</strong> Supervising international counseling students in rural Appalachia: An interpretative phenomenological analysis.</li>
-      </ul>
-    </details>
-    <details>
-      <summary>Recent conference presentations</summary>
-      <ul>
-        <li><strong>ACA 2026.</strong> When peer protection fails: Cyberbullying, aggression and life satisfaction (poster).</li>
-        <li><strong>OCA 2026.</strong> Empowering emerging counselors through competency-based supervision and mentorship.</li>
-        <li><strong>ACES 2025, Philadelphia.</strong> Faculty wellness in counselor education: The Indivisible Self Model (round table).</li>
-        <li><strong>All Ohio Counselors Conference 2025.</strong> Fostering wellness for college students with autism spectrum disorder.</li>
-        <li><strong>ACA 2025, Orlando.</strong> Three posters on adolescent self-esteem, teacher victimization, and post-traumatic growth in Korean culture.</li>
-        <li><strong>NCACES 2024, Chicago.</strong> Integrating social justice advocacy in counseling supervision (poster).</li>
-      </ul>
-    </details>
-  </div>
-</section>
-
-<section id="practice">
-  <div class="wrap">
-    <h2 class="reveal">Clinical work and teaching</h2>
-    <div class="cols">
-      <div class="reveal">
-        <h3>Counseling</h3>
-        <div class="role"><strong>Clinical Counselor Graduate Assistant</strong><span>Ohio University Counseling &amp; Psychological Services, 2025-2026</span></div>
-        <div class="role"><strong>School Counseling Intern</strong><span>Nelsonville-York Elementary, 2025-2026</span></div>
-        <div class="role"><strong>Counseling Intern</strong><span>Hopewell Health Center, 2024-2025</span></div>
-        <div class="role"><strong>Counseling Practicum</strong><span>Scioto Paint Valley Mental Health Center, 2024</span></div>
-        <div class="role"><strong>Counseling Intern</strong><span>Seoul National University Center for Campus Life &amp; Culture, 2019-2022</span></div>
+  <div class="grid2">
+    <section class="panel reveal" id="honors">
+      <div class="bar"><span class="no">04</span><h2>Honors and funding</h2></div>
+      <div class="body honors">
+        <div class="honor feat"><span class="when">Oct 2026 · PI</span><h3>NCACES Research Grant</h3><p>Revisiting the factor structure of the Group Leader Self-Efficacy Instrument.</p></div>
+        <div class="honor"><span class="when">Oct 2025</span><h3>Graduate Student Award</h3><p>Ohio Counseling Association</p></div>
+        <div class="honor"><span class="when">2024, 2025</span><h3>ACES Diversity Scholarship</h3><p>Awarded twice</p></div>
+        <div class="honor"><span class="when">Apr 2025</span><h3>Donald A. Green Memorial Award</h3><p>Patton College of Education</p></div>
+        <div class="honor"><span class="when">Mar 2025</span><h3>Exemplary Research Student Award</h3><p>Chi Sigma Iota, Alpha Chapter</p></div>
+        <div class="honor"><span class="when">Fall 2025</span><h3>Research &amp; Graduate Studies Fund</h3><p>Parental awareness of children's social media use</p></div>
+        <div class="honor feat"><span class="when">Dec 2020</span><h3>APA Division 56 Outstanding Poster Award</h3><p>Trajectories of PTSD symptoms after a natural disaster in South Korea.</p></div>
       </div>
-      <div class="reveal">
-        <h3>Teaching and supervision</h3>
-        <div class="role"><strong>Graduate Teaching Assistant</strong><span>Professional School Counseling; Counseling Children and Adolescents, 2025</span></div>
-        <div class="role"><strong>Graduate Teaching Instructor</strong><span>Ethical Issues in Human Services; Human Service Professions, 2024</span></div>
-        <div class="role"><strong>Group Supervisor</strong><span>Master's group counseling, Ohio University, Fall 2024</span></div>
-        <div class="role"><strong>Individual Supervisor</strong><span>Counselors-in-training, Ohio University, Fall 2023</span></div>
-        <div class="role"><strong>College of Fine Arts Liaison</strong><span>Ohio University CPS, 2025-2026</span></div>
+    </section>
+
+    <div class="stack">
+      <section class="panel reveal">
+        <div class="bar"><span class="no">04b</span><h2>Leadership</h2></div>
+        <div class="body">
+          <ul class="list">
+            <li><strong>President</strong><span>Ohio College Counseling Association, 2026-present</span></li>
+            <li><strong>Social Media &amp; Outreach Chair</strong><span>Southeastern Ohio Counseling Association, 2024-present</span></li>
+            <li><strong>Social Media &amp; Outreach Chair</strong><span>Chi Sigma Iota, Alpha Chapter, 2024-2025</span></li>
+            <li><strong>Original Work Awards Reviewer</strong><span>Graduate Student Senate, Ohio University, 2026</span></li>
+          </ul>
+        </div>
+      </section>
+      <section class="panel reveal">
+        <div class="bar"><span class="no">04c</span><h2>Education and credentials</h2></div>
+        <div class="body">
+          <ul class="list">
+            <li><strong>PhD, Counselor Education &amp; Supervision</strong><span>Ohio University, expected 2027</span></li>
+            <li><strong>MS, Educational Counseling</strong><span>Seoul National University, 2021</span></li>
+            <li><strong>Licensed Professional Counselor</strong><span>Ohio</span></li>
+            <li><strong>Certified Counseling Psychologist · Certified Youth Counselor</strong><span>South Korea</span></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="panel contact reveal" id="contact">
+    <div class="body">
+      <span class="tag gold" style="background:rgb(255 255 255 / .14);color:inherit">05 · Contact</span>
+      <h2 style="margin-top:18px">Open to faculty positions and research collaborations.</h2>
+      <div class="ctas">
+        <a class="btn btn-light" href="mailto:cp121423@ohio.edu">cp121423@ohio.edu</a>
+        <a class="btn btn-outline" href="CV_Chanhoon_Park_research.pdf">Download CV ↓</a>
+      </div>
+      <div class="foot">
+        <span>Chanhoon Park, Ohio University</span>
+        <span>Licensed Professional Counselor, Ohio</span>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section class="honors-sec" id="honors">
-  <div class="wrap">
-    <h2 class="reveal">Honors and funding</h2>
-    <div class="honors">
-      <div class="honor feat w2 reveal"><span class="when">Oct 2026</span><h3>NCACES Research Grant</h3><p>Principal Investigator. Revisiting the factor structure of the Group Leader Self-Efficacy Instrument.</p></div>
-      <div class="honor reveal"><span class="when">Oct 2025</span><h3>Graduate Student Award</h3><p>Ohio Counseling Association</p></div>
-      <div class="honor reveal"><span class="when">2024, 2025</span><h3>ACES Diversity Scholarship</h3><p>Awarded twice</p></div>
-      <div class="honor reveal"><span class="when">Apr 2025</span><h3>Donald A. Green Memorial Award</h3><p>Patton College of Education</p></div>
-      <div class="honor reveal"><span class="when">Mar 2025</span><h3>Exemplary Research Student Award</h3><p>Chi Sigma Iota, Alpha Chapter</p></div>
-      <div class="honor reveal"><span class="when">Fall 2025</span><h3>Fall Research &amp; Graduate Studies Fund</h3><p>Parental awareness of children's social media use and its risks</p></div>
-      <div class="honor feat w2 reveal"><span class="when">Dec 2020</span><h3>APA Division 56 Outstanding Poster Award</h3><p>Trajectories of PTSD symptoms after a natural disaster in South Korea.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap split">
-    <div class="reveal">
-      <h2>Leadership</h2>
-      <ul class="list">
-        <li><strong>President</strong><span>Ohio College Counseling Association, 2026-present</span></li>
-        <li><strong>Social Media &amp; Outreach Chair</strong><span>Southeastern Ohio Counseling Association, 2024-present</span></li>
-        <li><strong>Social Media &amp; Outreach Chair</strong><span>Chi Sigma Iota, Alpha Chapter, 2024-2025</span></li>
-        <li><strong>Original Work Awards Reviewer</strong><span>Graduate Student Senate, Ohio University, 2026</span></li>
-      </ul>
-    </div>
-    <div class="reveal">
-      <h2>Credentials</h2>
-      <ul class="list">
-        <li><strong>Licensed Professional Counselor</strong><span>Ohio</span></li>
-        <li><strong>Certified Counseling Psychologist</strong><span>South Korea</span></li>
-        <li><strong>Certified Youth Counselor</strong><span>South Korea</span></li>
-        <li><strong>Statistics</strong><span>R, Mplus, Python, Amos, SPSS</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<footer class="contact" id="contact">
-  <div class="wrap">
-    <h2 class="reveal">Open to faculty positions and research collaborations.</h2>
-    <div class="ctas reveal">
-      <a class="btn btn-light" href="mailto:cp121423@ohio.edu">cp121423@ohio.edu</a>
-      <a class="btn btn-outline" href="CV_Chanhoon_Park_research.pdf">Download CV</a>
-    </div>
-    <div class="foot">
-      <span>Chanhoon Park, Ohio University</span>
-      <span>Licensed Professional Counselor, Ohio</span>
-    </div>
-  </div>
-</footer>
+</main>
 
 <script>
   const els = document.querySelectorAll('.reveal');
